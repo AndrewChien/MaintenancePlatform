@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="ZNC.Component.Controls.PagedTextBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:lib="clr-namespace:ZNC.Component;assembly=ZNC.Component"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" mc:Ignorable="d" 
+             d:DesignHeight="280" d:DesignWidth="300" Loaded="UserControl_Loaded">
+    <Grid>
+        <StackPanel>
+            <TextBox Width="120" Height="25" Name="txtUc"   HorizontalAlignment="Left" TextChanged="txtUc_TextChanged" LostFocus="txtUc_LostFocus" />
+            <telerik:RadGridView Name="dgUc"  telerik:StyleManager.Theme="Transparent" AlternationCount="2"  IsReadOnly="True" 
+                                VerticalAlignment="Top"   Height="Auto" RowIndicatorVisibility="Collapsed" Visibility="Collapsed"
+                                ShowGroupPanel="False" AutoGenerateColumns="False" IsFilteringAllowed="False" SelectionUnit="FullRow" CanUserSelect="True"                                                       
+                                CanUserReorderColumns="False" CanUserSortColumns="True" CanUserResizeColumns="False" SelectionMode="Extended" AlternateRowBackground="#87CEFA" ShowGroupFooters="True" BorderBrush="White" Background="White" Foreground="Black" BorderThickness="1" FontFamily="Arial" Grid.Row="1" Margin="0,1,0,0">
+                <telerik:RadGridView.HeaderRowStyle>
+                    <Style TargetType="telerik:GridViewHeaderRow">
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="FontSize" Value="14"/>
+                    </Style>
+                </telerik:RadGridView.HeaderRowStyle>
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn IsFilterable="True" x:Name="title1" HeaderTextAlignment="center"  MinWidth="200" DataMemberBinding="{Binding KeywordStrings[0]}"/>
+                    <telerik:GridViewDataColumn IsFilterable="True" x:Name="title2" HeaderTextAlignment="center"  MinWidth="200" DataMemberBinding="{Binding DisplayName}"/>
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+            <!--<lib:DataPager VerticalAlignment="Top" Height="25" Name="dpUc" PageSizeList="10,20,30" Visibility="Collapsed"
+                       PageChanged="dataPager_PageChanged" />-->
+        </StackPanel>
+    </Grid>
+</UserControl>

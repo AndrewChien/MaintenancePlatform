@@ -1,0 +1,12 @@
+﻿<Button x:Class="ZNC.Component.ImageButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" x:Name="loc"
+             d:DesignHeight="44" d:DesignWidth="75">
+    <Button.Resources>
+        <ResourceDictionary Source="Themes/Generic.xaml" />
+    </Button.Resources>
+    <Image Name="innerImage" Source="{Binding ImageSource,ElementName=loc}" Stretch="None" />
+</Button>

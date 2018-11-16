@@ -1,0 +1,454 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                    mc:Ignorable="d">
+    <Style TargetType="{x:Type Window}">
+        <Setter Property="FontFamily" Value="宋体"/>
+    </Style>
+    <ControlTemplate  x:Key="stScrollBtn" TargetType="{x:Type RepeatButton}">
+        <Border BorderBrush="#FFCCCCCC" BorderThickness="1,0,0,0" HorizontalAlignment="Right" Margin="0" Width="16" VerticalAlignment="Stretch" Height="Auto" RenderTransformOrigin="0.5,0.5" CornerRadius="0">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="1,1" StartPoint="-0,1">
+                    <GradientStop Color="#FFfbffff" Offset="0"/>
+                    <GradientStop Color="#FFbcd1e6" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="stThumb" TargetType="{x:Type Thumb}"  >
+        <Border  x:Name="bd"  Width="16" CornerRadius="2" HorizontalAlignment="Right"  Margin="0" BorderBrush="#ff999999" BorderThickness="1" Height="Auto">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
+                    <GradientStop Color="#fff7ffff" Offset="0"/>
+                    <GradientStop Color="#ffcfe1f7" Offset="0.5"/>
+                    <GradientStop Color="#ffc0d1e3" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsDragging" Value="true">
+                <Setter Property="Background" TargetName="bd">
+                    <Setter.Value>
+                        <LinearGradientBrush EndPoint="1,1" StartPoint="-0,1">
+                            <GradientStop Color="#fff7ffff" Offset="0"/>
+                            <GradientStop Color="#ffcfe1f7" Offset="0.5"/>
+                            <GradientStop Color="#ffc0d1e3" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter TargetName="bd" Property="Background" >
+                    <Setter.Value>
+                        <LinearGradientBrush EndPoint="1,1" StartPoint="-0,1">
+                            <GradientStop Color="#fff7ffff" Offset="0"/>
+                            <GradientStop Color="#ffcfe1f7" Offset="0.5"/>
+                            <GradientStop Color="#ffc0d1e3" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+
+    <ControlTemplate x:Key="VerticalScrollBar" TargetType="{x:Type ScrollBar}">
+        <Grid HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Track
+					 x:Name="PART_Track"
+					  Grid.Row="0"
+					  Maximum="{TemplateBinding Maximum}"  
+                       Minimum="{TemplateBinding Minimum}"  
+                       Value="{TemplateBinding Value}"
+					   IsDirectionReversed="true"  
+					   Margin="0" HorizontalAlignment="Right">
+                <Track.DecreaseRepeatButton>
+                    <RepeatButton
+							  Template="{StaticResource stScrollBtn}"
+							  Command="ScrollBar.PageUpCommand" />
+                </Track.DecreaseRepeatButton>
+                <Track.IncreaseRepeatButton>
+                    <RepeatButton
+							  Template="{StaticResource stScrollBtn}"
+							   Command="ScrollBar.PageDownCommand" />
+                </Track.IncreaseRepeatButton>
+                <Track.Thumb>
+                    <Thumb Width="16" Template="{StaticResource stThumb}" Margin="0" VerticalAlignment="Stretch" HorizontalAlignment="Center" Height="Auto"/>
+                </Track.Thumb>
+            </Track>
+        </Grid>
+    </ControlTemplate>
+
+    <ControlTemplate  x:Key="stScrollBtn2" TargetType="{x:Type RepeatButton}">
+        <Border BorderBrush="#FFCCCCCC" BorderThickness="0,1,0,0" HorizontalAlignment="Stretch" Margin="0" Width="Auto" VerticalAlignment="Bottom" Height="16" RenderTransformOrigin="0.5,0.5" CornerRadius="0">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="1,-0" StartPoint="1,1">
+                    <GradientStop Color="#FFfbffff" Offset="0"/>
+                    <GradientStop Color="#FFbcd1e6" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+    </ControlTemplate>
+
+    <ControlTemplate  x:Key="stThumb2" TargetType="{x:Type Thumb}"  >
+        <Border  x:Name="bd"  HorizontalAlignment="Stretch"  CornerRadius="2"  Margin="0" BorderBrush="#ff999999" BorderThickness="1" Height="16" VerticalAlignment="Bottom">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="-0,0" StartPoint="0,1">
+                    <GradientStop Color="#fff7ffff" Offset="0"/>
+                    <GradientStop Color="#ffcfe1f7" Offset="0.5"/>
+                    <GradientStop Color="#ffc0d1e3" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsDragging" Value="true">
+                <Setter Property="Background" TargetName="bd">
+                    <Setter.Value>
+                        <LinearGradientBrush EndPoint="1,1" StartPoint="-0,1">
+                            <GradientStop Color="#fff7ffff" Offset="0"/>
+                            <GradientStop Color="#ffcfe1f7" Offset="0.5"/>
+                            <GradientStop Color="#ffc0d1e3" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter TargetName="bd" Property="Background" >
+                    <Setter.Value>
+                        <LinearGradientBrush EndPoint="1,1" StartPoint="-0,1">
+                            <GradientStop Color="#fff7ffff" Offset="0"/>
+                            <GradientStop Color="#ffcfe1f7" Offset="0.5"/>
+                            <GradientStop Color="#ffc0d1e3" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="HorizontalScrollBar" TargetType="{x:Type ScrollBar}">
+        <Grid VerticalAlignment="Bottom" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Track Grid.Column="0" x:Name="PART_Track"  
+                       Maximum="{TemplateBinding Maximum}"  
+                       Minimum="{TemplateBinding Minimum}"  
+                       Value="{TemplateBinding Value}">
+                <Track.DecreaseRepeatButton>
+                    <RepeatButton Template="{StaticResource stScrollBtn2}" 
+                                      Command="ScrollBar.PageLeftCommand" />
+                </Track.DecreaseRepeatButton>
+
+                <Track.IncreaseRepeatButton>
+                    <RepeatButton Template="{StaticResource stScrollBtn2}"  
+                                     Command="ScrollBar.PageRightCommand"  />
+                </Track.IncreaseRepeatButton>
+
+                <Track.Thumb>
+                    <Thumb Width="Auto" Template="{StaticResource stThumb2}" Margin="0,0" VerticalAlignment="Center" HorizontalAlignment="Stretch" Height="16"/>
+                </Track.Thumb>
+            </Track>
+        </Grid>
+    </ControlTemplate>
+
+    <Style x:Key="gdt" TargetType="{x:Type ScrollViewer}">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="18"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="17"/>
+                        </Grid.RowDefinitions>
+                        <ScrollContentPresenter Margin="0" Grid.ColumnSpan="1" Grid.RowSpan="2"/>
+
+                        <ScrollBar  x:Name="PART_HorizontalScrollBar"
+						ViewportSize="60"
+						 Orientation="Horizontal"
+                			Grid.Row="1"
+                			Value="{TemplateBinding HorizontalOffset}"
+                			Maximum="{TemplateBinding ScrollableWidth}"
+                			Template="{StaticResource HorizontalScrollBar}" 
+                			Foreground="{x:Null}" 
+                			Height="Auto" Margin="0,0,-1,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="Auto" Grid.ColumnSpan="1"/>
+
+                        <ScrollBar x:Name="PART_VerticalScrollBar" ViewportSize="25"
+                			Grid.Row="0"
+                			Grid.Column="1"
+                			Value="{TemplateBinding VerticalOffset}"
+                			Maximum="{TemplateBinding ScrollableHeight}"
+                			Template="{StaticResource VerticalScrollBar}"
+                			Height="Auto" Margin="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Width="Auto" Grid.RowSpan="2"/>
+                    </Grid>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--滚动条结束-->
+
+    <Style x:Key="Settit" TargetType="{x:Type Grid}">
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFCFDFC" Offset="0"/>
+                    <!--<GradientStop Color="Red" Offset="0"/>-->
+                    <GradientStop Color="#FFC3D4EA" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="BorderMat" TargetType="{x:Type Grid}">
+        <Setter Property="Background" >
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFF5F9FC" Offset="0"/>
+                    <!--<GradientStop Color="Red" Offset="0"/>-->
+                    <GradientStop Color="#FFE7F1FB" Offset="0.48"/>
+                    <GradientStop Color="#FFDCE5F4" Offset="0.52"/>
+                    <GradientStop Color="#FFDDE9F7" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <LinearGradientBrush x:Key="lanshh" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFFFFFFF"/>
+        <!--<GradientStop Color="red"/>-->
+        <GradientStop Color="#FFCDDBED" Offset="1"/>
+    </LinearGradientBrush>
+    <Style x:Key="Borderleftr" TargetType="{x:Type Border}">
+        <Setter Property="Background" Value="{DynamicResource lanshh}" />
+    </Style>
+
+    <!--窗口前进后退刷新-->
+    <Style x:Key="Arrow_LtAn" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Canvas x:Name="canvas">
+                        <Canvas.Background>
+                            <ImageBrush ImageSource="Images/T_Arrow_Lt.png"/>
+                        </Canvas.Background>
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Canvas>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True"/>
+                        <Trigger Property="IsDefaulted" Value="True"/>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="canvas">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="Images/T_Arrow_LtNo.png"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True" >
+                            <Setter Property="Background" TargetName="canvas">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="images/T_Arrow_LtNo.png"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False"/>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Cursor" Value="Hand" />
+    </Style>
+
+    <Style x:Key="Arrow_RtAn" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Canvas x:Name="canvas">
+                        <Canvas.Background>
+                            <ImageBrush ImageSource="images/T_Arrow_Rt.png"/>
+                        </Canvas.Background>
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Canvas>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True"/>
+                        <Trigger Property="IsDefaulted" Value="True"/>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="canvas">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="images/T_Arrow_RtNo.png"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True" >
+                            <Setter Property="Background" TargetName="canvas">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="images/T_Arrow_RtNo.png"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False"/>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Cursor" Value="Hand" />
+    </Style>
+
+    <Style x:Key="Arrow_RefAn" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Canvas x:Name="canvas">
+                        <Canvas.Background>
+                            <ImageBrush ImageSource="images/T_Arrow_Ref.png"/>
+                        </Canvas.Background>
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Canvas>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True"/>
+                        <Trigger Property="IsDefaulted" Value="True"/>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="canvas">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="images/T_Arrow_RefNo.png"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True" >
+                            <Setter Property="Background" TargetName="canvas">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="images/T_Arrow_RefNo.png"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False"/>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Cursor" Value="Hand" />
+    </Style>
+
+    <!--关闭按钮-->
+    <Style x:Key="WindowClose" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Canvas x:Name="canvas">
+                        <Canvas.Background>
+                            <ImageBrush ImageSource="Images/btn_close_normal.png"/>
+                        </Canvas.Background>
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Canvas>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True"/>
+                        <Trigger Property="IsDefaulted" Value="True"/>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="canvas">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="Images/btn_close_highlight.png"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True" >
+                            <Setter Property="Background" TargetName="canvas">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="Images/btn_close_down.png"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False"/>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+    </Style>
+    <!---->
+    
+    <!--最小化按钮-->
+    <Style x:Key="WindowMin" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Canvas x:Name="canvas">
+                        <Canvas.Background>
+                            <ImageBrush ImageSource="Images/btn_mini_normal.png"/>
+                        </Canvas.Background>
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Canvas>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True"/>
+                        <Trigger Property="IsDefaulted" Value="True"/>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="canvas">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="Images/btn_mini_highlight.png"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True" >
+                            <Setter Property="Background" TargetName="canvas">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="Images/btn_mini_down.png"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False"/>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+    </Style>
+    <!---->
+    <!--最大化按钮-->
+    <Style x:Key="WindowMax" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Canvas x:Name="canvas">
+                        <Canvas.Background>
+                            <ImageBrush ImageSource="Images/btn_max_normal.png"/>
+                        </Canvas.Background>
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Canvas>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True"/>
+                        <Trigger Property="IsDefaulted" Value="True"/>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="canvas">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="Images/btn_max_highlight.png"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True" >
+                            <Setter Property="Background" TargetName="canvas">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="Images/btn_max_down.png"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False"/>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+    </Style>
+    <!---->
+
+</ResourceDictionary>

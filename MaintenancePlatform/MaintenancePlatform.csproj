@@ -1,0 +1,582 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C28D215A-CD9A-43CF-9155-3F4B820BCCA3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MaintenancePlatform</RootNamespace>
+    <AssemblyName>MaintenancePlatform</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GifImageLib">
+      <HintPath>..\ZNC.Component\DLL\GifImageLib.dll</HintPath>
+    </Reference>
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls, Version=2011.1.419.35, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ZNC.Component\DLL\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Charting">
+      <HintPath>..\ZNC.Component\DLL\Telerik.Windows.Controls.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Data">
+      <HintPath>..\ZNC.Component\DLL\Telerik.Windows.Controls.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.DataVisualization">
+      <HintPath>..\ZNC.Component\DLL\Telerik.Windows.Controls.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Docking">
+      <HintPath>..\ZNC.Component\DLL\Telerik.Windows.Controls.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView, Version=2011.1.419.35, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ZNC.Component\DLL\Telerik.Windows.Controls.GridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2011.1.419.35, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ZNC.Component\DLL\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation">
+      <HintPath>..\ZNC.Component\DLL\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RibbonBar">
+      <HintPath>..\ZNC.Component\DLL\Telerik.Windows.Controls.RibbonBar.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data, Version=2011.1.419.35, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ZNC.Component\DLL\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ComfigMain.xaml.cs">
+      <DependentUpon>ComfigMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPageView.xaml.cs">
+      <DependentUpon>MainPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Acquisition\AcquisitionBaseDataVM.cs" />
+    <Compile Include="ViewModels\Acquisition\AcquisitionSettingEditVM.cs" />
+    <Compile Include="ViewModels\Acquisition\AcquisitionSettingVM.cs" />
+    <Compile Include="ViewModels\Acquisition\ConvertCollections.cs" />
+    <Compile Include="ViewModels\ChildPageViewModel.cs" />
+    <Compile Include="ViewModels\Equipment\EquipmentAlarmRecordVM.cs" />
+    <Compile Include="ViewModels\Equipment\EquipmentCardEditVM.cs" />
+    <Compile Include="ViewModels\Equipment\EquipmentCardVM.cs" />
+    <Compile Include="ViewModels\Equipment\EquipmentEditVM.cs" />
+    <Compile Include="ViewModels\Equipment\EquipmentHealthVM.cs" />
+    <Compile Include="ViewModels\Equipment\EquipmentLedgerVM.cs" />
+    <Compile Include="ViewModels\Equipment\EquipmentLogVM.cs" />
+    <Compile Include="ViewModels\Equipment\EquipmentMaterialVM.cs" />
+    <Compile Include="ViewModels\Equipment\EquipmentRepairRecordEditVM.cs" />
+    <Compile Include="ViewModels\Equipment\EquipmentRepairRecordVM.cs" />
+    <Compile Include="ViewModels\Equipment\EquipmentVM.cs" />
+    <Compile Include="ViewModels\Equipment\ErrorDictionaryEditVM.cs" />
+    <Compile Include="ViewModels\Equipment\ErrorDictionaryVM.cs" />
+    <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\PublicConverts.cs" />
+    <Compile Include="ViewModels\Systems\AlarmHistoryVM.cs" />
+    <Compile Include="ViewModels\Systems\DictionaryEditVM.cs" />
+    <Compile Include="ViewModels\Systems\DictionaryVM.cs" />
+    <Compile Include="ViewModels\Systems\PushRuleEditVM.cs" />
+    <Compile Include="ViewModels\Systems\PushRuleVM.cs" />
+    <Compile Include="ViewModels\Systems\SystemLogVM.cs" />
+    <Compile Include="ViewModels\Systems\SystemModuleEditVM.cs" />
+    <Compile Include="ViewModels\Systems\SystemModuleVM.cs" />
+    <Compile Include="ViewModels\Systems\SystemServiceEditVM.cs" />
+    <Compile Include="ViewModels\Systems\SystemServiceVM.cs" />
+    <Compile Include="ViewModels\Systems\SystemSettingVM.cs" />
+    <Compile Include="ViewModels\Systems\UploadSettingEditVM.cs" />
+    <Compile Include="ViewModels\Systems\UploadSettingVM.cs" />
+    <Compile Include="ViewModels\Users\DepartmentEditVM.cs" />
+    <Compile Include="ViewModels\Users\DepartmentVM.cs" />
+    <Compile Include="ViewModels\Users\JurisdictionEditVM.cs" />
+    <Compile Include="ViewModels\Users\JurisdictionVM.cs" />
+    <Compile Include="ViewModels\Users\RoleEditVM.cs" />
+    <Compile Include="ViewModels\Users\RoleVM.cs" />
+    <Compile Include="ViewModels\Users\UserEditVM.cs" />
+    <Compile Include="ViewModels\Users\UserVM.cs" />
+    <Compile Include="Views\Acquisition\AcquisitionBaseDataView.xaml.cs">
+      <DependentUpon>AcquisitionBaseDataView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Acquisition\AcquisitionSettingEditView.xaml.cs">
+      <DependentUpon>AcquisitionSettingEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Acquisition\AcquisitionSettingView.xaml.cs">
+      <DependentUpon>AcquisitionSettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipment\EquipmentAlarmRecordView.xaml.cs">
+      <DependentUpon>EquipmentAlarmRecordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipment\EquipmentCardEditView.xaml.cs">
+      <DependentUpon>EquipmentCardEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipment\EquipmentCardView.xaml.cs">
+      <DependentUpon>EquipmentCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipment\EquipmentEditView.xaml.cs">
+      <DependentUpon>EquipmentEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipment\EquipmentHealthView.xaml.cs">
+      <DependentUpon>EquipmentHealthView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipment\EquipmentLedgerView.xaml.cs">
+      <DependentUpon>EquipmentLedgerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipment\EquipmentLogView.xaml.cs">
+      <DependentUpon>EquipmentLogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipment\EquipmentMaterialView.xaml.cs">
+      <DependentUpon>EquipmentMaterialView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipment\EquipmentRepairRecordEditView.xaml.cs">
+      <DependentUpon>EquipmentRepairRecordEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipment\EquipmentRepairRecordView.xaml.cs">
+      <DependentUpon>EquipmentRepairRecordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipment\EquipmentView.xaml.cs">
+      <DependentUpon>EquipmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipment\ErrorDictionaryEditView.xaml.cs">
+      <DependentUpon>ErrorDictionaryEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipment\ErrorDictionaryView.xaml.cs">
+      <DependentUpon>ErrorDictionaryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Systems\AlarmHistoryView.xaml.cs">
+      <DependentUpon>AlarmHistoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Systems\DictionaryEditView.xaml.cs">
+      <DependentUpon>DictionaryEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Systems\DictionaryView.xaml.cs">
+      <DependentUpon>DictionaryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Systems\PushRuleEditView.xaml.cs">
+      <DependentUpon>PushRuleEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Systems\PushRuleView.xaml.cs">
+      <DependentUpon>PushRuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Systems\SystemLogView.xaml.cs">
+      <DependentUpon>SystemLogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Systems\SystemModuleEditView.xaml.cs">
+      <DependentUpon>SystemModuleEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Systems\SystemModuleView.xaml.cs">
+      <DependentUpon>SystemModuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Systems\SystemServiceEditView.xaml.cs">
+      <DependentUpon>SystemServiceEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Systems\SystemServiceView.xaml.cs">
+      <DependentUpon>SystemServiceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Systems\SystemSettingView.xaml.cs">
+      <DependentUpon>SystemSettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Systems\UploadSettingEditView.xaml.cs">
+      <DependentUpon>UploadSettingEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Systems\UploadSettingView.xaml.cs">
+      <DependentUpon>UploadSettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Users\DepartmentEditView.xaml.cs">
+      <DependentUpon>DepartmentEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Users\DepartmentView.xaml.cs">
+      <DependentUpon>DepartmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Users\JurisdictionEditView.xaml.cs">
+      <DependentUpon>JurisdictionEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Users\JurisdictionView.xaml.cs">
+      <DependentUpon>JurisdictionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Users\RoleEditView.xaml.cs">
+      <DependentUpon>RoleEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Users\RoleView.xaml.cs">
+      <DependentUpon>RoleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Users\UserEditView.xaml.cs">
+      <DependentUpon>UserEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Users\UserView.xaml.cs">
+      <DependentUpon>UserView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ComfigMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\WindowBase.cs" />
+    <Compile Include="Converters\ImageSourceConverter.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Print\PrintPath.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Print\PrintView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Print\PrintWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\AppStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\Black\WindowBaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Acquisition\AcquisitionBaseDataView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Acquisition\AcquisitionSettingEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Acquisition\AcquisitionSettingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipment\EquipmentAlarmRecordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipment\EquipmentCardEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipment\EquipmentCardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipment\EquipmentEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipment\EquipmentHealthView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipment\EquipmentLedgerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipment\EquipmentLogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipment\EquipmentMaterialView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipment\EquipmentRepairRecordEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipment\EquipmentRepairRecordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipment\EquipmentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipment\ErrorDictionaryEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipment\ErrorDictionaryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Systems\AlarmHistoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Systems\DictionaryEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Systems\DictionaryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Systems\PushRuleEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Systems\PushRuleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Systems\SystemLogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Systems\SystemModuleEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Systems\SystemModuleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Systems\SystemServiceEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Systems\SystemServiceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Systems\SystemSettingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Systems\UploadSettingEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Systems\UploadSettingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Users\DepartmentEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Users\DepartmentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Users\JurisdictionEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Users\JurisdictionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Users\RoleEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Users\RoleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Users\UserEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Users\UserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PrintHelper.cs" />
+    <Compile Include="Print\PrintPath.xaml.cs">
+      <DependentUpon>PrintPath.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Print\PrintWindow.xaml.cs">
+      <DependentUpon>PrintWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZNC.Component\ZNC.Component.csproj">
+      <Project>{05e36aea-d730-453e-a751-547a9a750405}</Project>
+      <Name>ZNC.Component</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZNC.DataAccess\ZNC.DataAccess.csproj">
+      <Project>{f0ba9e4c-84ed-4676-b8f8-478a9db3aa7c}</Project>
+      <Name>ZNC.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZNC.DataAcquisition\ZNC.DataAcquisition.csproj">
+      <Project>{606bc789-097c-44a7-99e7-3ff372c33ca3}</Project>
+      <Name>ZNC.DataAcquisition</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZNC.DataAnalysis\ZNC.DataAnalysis.csproj">
+      <Project>{e755cb42-2057-4d83-b64d-bcc7433cc7fb}</Project>
+      <Name>ZNC.DataAnalysis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZNC.DataEntiry\ZNC.DataEntiry.csproj">
+      <Project>{26bc72d8-87b1-4f08-ab1f-24cb9f8dc720}</Project>
+      <Name>ZNC.DataEntiry</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZNC.Utility\ZNC.Utility.csproj">
+      <Project>{417775fd-f0d1-4989-b7cf-b34776a3c07c}</Project>
+      <Name>ZNC.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\main-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\main-BG-Down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\MainPage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\green.png" />
+    <Resource Include="image\greenf.gif" />
+    <Resource Include="image\red.png" />
+    <Resource Include="image\redf.gif" />
+    <Resource Include="image\yellow.png" />
+    <Resource Include="image\yellowf.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\MainPage_pure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\main-0002_13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\main-0002_04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\add.png" />
+    <Resource Include="image\alarm.gif" />
+    <Resource Include="image\alarm.png" />
+    <Resource Include="image\alarm_bg.png" />
+    <Resource Include="image\Asset.png" />
+    <Resource Include="image\bg.png" />
+    <Resource Include="image\Caution.png" />
+    <Resource Include="image\change.png" />
+    <Resource Include="image\check.png" />
+    <Resource Include="image\close.png" />
+    <Resource Include="image\delete.png" />
+    <Resource Include="image\dict.png" />
+    <Resource Include="image\end.gif" />
+    <Resource Include="image\end.png" />
+    <Resource Include="image\Header.png" />
+    <Resource Include="image\Header1.jpg" />
+    <Resource Include="image\keshi.png" />
+    <Resource Include="image\key.png" />
+    <Resource Include="image\local.png" />
+    <Resource Include="image\login-bg.png" />
+    <Resource Include="image\main-0003_05.png" />
+    <Resource Include="image\main-0003_37-45.png" />
+    <Resource Include="image\main-0003_40.png" />
+    <Resource Include="image\main-0003_49.png" />
+    <Resource Include="image\main_06.png" />
+    <Resource Include="image\menu1.png" />
+    <Resource Include="image\modify.png" />
+    <Resource Include="image\module.png" />
+    <Resource Include="image\monitor.png" />
+    <Resource Include="image\Personal.png" />
+    <Resource Include="image\save.png" />
+    <Resource Include="image\search.png" />
+    <Resource Include="image\set.png" />
+    <Resource Include="image\start.gif" />
+    <Resource Include="image\start.png" />
+    <Resource Include="image\update.png" />
+    <Resource Include="image\user.png" />
+    <Resource Include="image\video.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{606BC789-097C-44A7-99E7-3FF372C33CA3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZNC.DataAcquisition</RootNamespace>
+    <AssemblyName>ZNC.DataAcquisition</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AGV\AGVController.cs" />
+    <Compile Include="CNC\CNCController.cs" />
+    <Compile Include="DCS\DCSController.cs" />
+    <Compile Include="Modbus\ModbusController.cs" />
+    <Compile Include="OPC\OPCController.cs" />
+    <Compile Include="PLC\PLCController.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Robot\RobotController.cs" />
+    <Compile Include="SCADA\SCADAController.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="DLL\ABB.PCSdk.Install.dll" />
+    <Content Include="DLL\ABB.Robotics.Adapters.IRC5.dll" />
+    <Content Include="DLL\ABB.Robotics.Controllers.PC.dll" />
+    <Content Include="DLL\ABB.Robotics.RobotStudio.dll" />
+    <Content Include="DLL\ComFxPlc.dll" />
+    <Content Include="DLL\ComQsPlc.dll" />
+    <Content Include="DLL\DMT.dll" />
+    <Content Include="DLL\EasyOPC_DA.dll" />
+    <Content Include="DLL\EntFxPlc.dll" />
+    <Content Include="DLL\EntQsPlc.dll" />
+    <Content Include="DLL\EntQsPlc_Asc.dll" />
+    <Content Include="DLL\FinsTcp.dll" />
+    <Content Include="DLL\FinsTcp.xml" />
+    <Content Include="DLL\HostLink.dll" />
+    <Content Include="DLL\Interop.OPCAutomation.dll" />
+    <Content Include="DLL\ModbusRTU.dll" />
+    <Content Include="DLL\ModbusTCP.dll" />
+    <Content Include="DLL\ModRtuTrans.dll" />
+    <Content Include="DLL\MSCOMM32.OCX" />
+    <Content Include="DLL\msvbvm60.dll" />
+    <Content Include="DLL\MSWINSCK.OCX" />
+    <Content Include="DLL\NModbus4.dll" />
+    <Content Include="DLL\NModbus4.xml" />
+    <Content Include="DLL\OLEPCS.DLL" />
+    <Content Include="DLL\opcbc_ps.dll" />
+    <Content Include="DLL\OpcClient.dll" />
+    <Content Include="DLL\opccomn_ps.dll" />
+    <Content Include="DLL\opcdaauto.dll" />
+    <Content Include="DLL\OPCdotNETLib.dll" />
+    <Content Include="DLL\opchda_ps.dll" />
+    <Content Include="DLL\opcproxy.dll" />
+    <Content Include="DLL\OpcRcw.Da.dll" />
+    <Content Include="DLL\opcsec_ps.dll" />
+    <Content Include="DLL\OpcServices.dll" />
+    <Content Include="DLL\opc_aeps.dll" />
+    <Content Include="DLL\RobotStudio.Services.RobApi.Desktop.dll" />
+    <Content Include="DLL\RobotStudio.Services.RobApi.dll" />
+    <Content Include="DLL\TransFins.dll" />
+    <Content Include="DLL\TransFxPlc.dll" />
+    <Content Include="DLL\TransModRTU.dll" />
+    <Content Include="DLL\TransQsPlc.dll" />
+    <Content Include="DLL\TransS7PPI.dll" />
+    <Content Include="DLL\WinTcpS7.dll" />
+    <Content Include="DLL\WinTcpS7_1K.dll" />
+    <Content Include="DLL\WinTcpS7_CP2.dll" />
+    <Content Include="DLL\WinTcpS7_Smart.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

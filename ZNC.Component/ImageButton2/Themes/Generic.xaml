@@ -1,0 +1,154 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:ZNC.Component.ImageButton2">
+
+
+  <Style TargetType="{x:Type local:DynamicImageButton}">
+    <Setter Property="Foreground" Value="Black"/>
+    <Setter Property="Focusable" Value="True"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type local:DynamicImageButton}">
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <!--<RowDefinition Height="Auto"/>-->
+            </Grid.RowDefinitions>
+            <Grid x:Name="ICON_IMG">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+              </Grid.ColumnDefinitions>
+
+              <Grid Grid.ColumnSpan="2" Background="Transparent" x:Name="PART_BORDER" Opacity="0">
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="*"/>
+                  <!--<RowDefinition Height="*"/>-->
+                </Grid.RowDefinitions>
+                <Rectangle RadiusX="10" RadiusY="10" Grid.RowSpan="2">
+                  <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                      <LinearGradientBrush.GradientStops>
+                        <GradientStop Color="#FF000000" Offset="0"/>
+                        <GradientStop Color="#FF000000" Offset="1"/>
+                      </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                  </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle Grid.Row="0" RadiusX="8" RadiusY="8" StrokeThickness="0" Margin="1">
+                  <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                      <LinearGradientBrush.GradientStops>
+                        <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                        <GradientStop Color="#00FFFFFF" Offset="0.9"/>
+                      </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                  </Rectangle.Fill>
+                </Rectangle>
+                <!--<Rectangle Grid.Row="1" RadiusX="4" RadiusY="4" StrokeThickness="0" Margin="1" Opacity="1">
+                  <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                      <LinearGradientBrush.GradientStops>
+                        <GradientStop Color="#00FFFFFF" Offset="0.1"/>
+                        <GradientStop Color="#FFFFFFFF" Offset="1"/>
+                      </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                  </Rectangle.Fill>
+                </Rectangle>-->
+              </Grid>
+
+              <Image Source="{TemplateBinding IconImage}" Width="16" Height="16" Margin="5"/>
+              <ContentPresenter Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5"/>
+
+              <Grid.LayoutTransform>
+                <ScaleTransform/>
+              </Grid.LayoutTransform>
+            </Grid>
+            
+            <Rectangle x:Name="TOP_IMG" RenderTransformOrigin="0.5,0.5" Opacity="0">
+              <Rectangle.Fill>
+                <VisualBrush Visual="{Binding ElementName=ICON_IMG}"/>
+              </Rectangle.Fill>
+              <Rectangle.RenderTransform>
+                <ScaleTransform/>
+              </Rectangle.RenderTransform>
+            </Rectangle>
+
+            <!--<Rectangle Grid.Row="1" Height="20" Margin="0,2,0,0">
+              <Rectangle.LayoutTransform>
+                <ScaleTransform ScaleY="-1"/>
+              </Rectangle.LayoutTransform>
+              <Rectangle.Fill>
+                <VisualBrush Visual="{Binding ElementName=ICON_IMG}"/>
+              </Rectangle.Fill>
+              <Rectangle.OpacityMask>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                  <GradientStop Color="Transparent" Offset="0.4"/>
+                  <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+              </Rectangle.OpacityMask>
+            </Rectangle>-->
+          </Grid>
+          <ControlTemplate.Triggers>
+            <Trigger Property="ButtonBase.IsMouseOver" Value="True">
+              <Setter TargetName="PART_BORDER" Property="Opacity" Value="1"/>
+              <Setter Property="Foreground" Value="White"/>
+              <Trigger.EnterActions>
+                <BeginStoryboard>
+                  <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="ICON_IMG" 
+                                     Storyboard.TargetProperty="LayoutTransform.ScaleX" 
+                                     To="1.5"
+                                     Duration="0:0:0.3"/>
+
+                    <DoubleAnimation Storyboard.TargetName="ICON_IMG" 
+                                     Storyboard.TargetProperty="LayoutTransform.ScaleY" 
+                                     To="1.5"
+                                     Duration="0:0:0.3"/>
+                  </Storyboard>
+                </BeginStoryboard>
+              </Trigger.EnterActions>
+              <Trigger.ExitActions>
+                <BeginStoryboard>
+                  <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="ICON_IMG" 
+                                     Storyboard.TargetProperty="LayoutTransform.ScaleX" 
+                                     To="1"
+                                     Duration="0:0:0.3"/>
+
+                    <DoubleAnimation Storyboard.TargetName="ICON_IMG" 
+                                     Storyboard.TargetProperty="LayoutTransform.ScaleY" 
+                                     To="1"
+                                     Duration="0:0:0.3"/>
+                  </Storyboard>
+                </BeginStoryboard>
+              </Trigger.ExitActions>
+            </Trigger>
+
+            <Trigger Property="IsFocused" Value="True">
+              <Setter TargetName="PART_BORDER" Property="Opacity" Value="1"/>
+              <Setter Property="Foreground" Value="White"/>
+            </Trigger>
+
+            <EventTrigger RoutedEvent="ButtonBase.PreviewMouseDown">
+              <BeginStoryboard>
+                <Storyboard>
+                  <DoubleAnimation Storyboard.TargetName="TOP_IMG"
+                                   Storyboard.TargetProperty="Opacity"
+                                   From="1" To="0" Duration="0:0:0.5"/>
+                  <DoubleAnimation Storyboard.TargetName="TOP_IMG"
+                                   Storyboard.TargetProperty="RenderTransform.ScaleX"
+                                   From="1" To="2" FillBehavior="Stop" Duration="0:0:0.5"/>
+                  <DoubleAnimation Storyboard.TargetName="TOP_IMG"
+                                   Storyboard.TargetProperty="RenderTransform.ScaleY"
+                                   From="1" To="2" FillBehavior="Stop" Duration="0:0:0.5"/>
+                </Storyboard>
+              </BeginStoryboard>
+            </EventTrigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+</ResourceDictionary>

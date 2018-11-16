@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E755CB42-2057-4D83-B64D-BCC7433CC7FB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZNC.DataAnalysis</RootNamespace>
+    <AssemblyName>ZNC.DataAnalysis</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BIZ\Acquisition\AcquisitionBaseDataBIZ.cs" />
+    <Compile Include="BIZ\Acquisition\AcquisitionSettingBIZ.cs" />
+    <Compile Include="BIZ\Equipment\EquipmentAlarmRecordBIZ.cs" />
+    <Compile Include="BIZ\Equipment\EquipmentBIZ.cs" />
+    <Compile Include="BIZ\Equipment\EquipmentCardBIZ.cs" />
+    <Compile Include="BIZ\Equipment\EquipmentHealthBIZ.cs" />
+    <Compile Include="BIZ\Equipment\EquipmentLedgerBIZ.cs" />
+    <Compile Include="BIZ\Equipment\EquipmentLogBIZ.cs" />
+    <Compile Include="BIZ\Equipment\EquipmentMaterialBIZ.cs" />
+    <Compile Include="BIZ\Equipment\EquipmentRepairRecordBIZ.cs" />
+    <Compile Include="BIZ\Equipment\ErrorDictionaryBIZ.cs" />
+    <Compile Include="BIZ\Systems\AlarmHistoryBIZ.cs" />
+    <Compile Include="BIZ\Systems\DictionaryBIZ.cs" />
+    <Compile Include="BIZ\Systems\PushRuleBIZ.cs" />
+    <Compile Include="BIZ\Systems\SystemLogBIZ.cs" />
+    <Compile Include="BIZ\Systems\SystemModuleBIZ.cs" />
+    <Compile Include="BIZ\Systems\SystemServiceBIZ.cs" />
+    <Compile Include="BIZ\Systems\SystemSettingBIZ.cs" />
+    <Compile Include="BIZ\Systems\UploadSettingBIZ.cs" />
+    <Compile Include="BIZ\Users\DepartmentBIZ.cs" />
+    <Compile Include="BIZ\Users\JurisdictionBIZ.cs" />
+    <Compile Include="BIZ\Users\RoleBIZ.cs" />
+    <Compile Include="BIZ\Users\UserBIZ.cs" />
+    <Compile Include="RealTimeAnalyzer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ZNC.DataAccess\ZNC.DataAccess.csproj">
+      <Project>{f0ba9e4c-84ed-4676-b8f8-478a9db3aa7c}</Project>
+      <Name>ZNC.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZNC.DataEntiry\ZNC.DataEntiry.csproj">
+      <Project>{26bc72d8-87b1-4f08-ab1f-24cb9f8dc720}</Project>
+      <Name>ZNC.DataEntiry</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZNC.Utility\ZNC.Utility.csproj">
+      <Project>{417775FD-F0D1-4989-B7CF-B34776A3C07C}</Project>
+      <Name>ZNC.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

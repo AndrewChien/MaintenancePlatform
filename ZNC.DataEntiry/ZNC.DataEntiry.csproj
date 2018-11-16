@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{26BC72D8-87B1-4F08-AB1F-24CB9F8DC720}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZNC.DataEntiry</RootNamespace>
+    <AssemblyName>ZNC.DataEntiry</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcquisitionBaseData.cs" />
+    <Compile Include="AcquisitionSetting.cs" />
+    <Compile Include="AlarmHistory.cs" />
+    <Compile Include="AlarmIcon.cs" />
+    <Compile Include="Department.cs" />
+    <Compile Include="Dictionary.cs" />
+    <Compile Include="Equipment.cs" />
+    <Compile Include="EquipmentAlarmRecord.cs" />
+    <Compile Include="EquipmentCard.cs" />
+    <Compile Include="EquipmentHealth.cs" />
+    <Compile Include="EquipmentLedger.cs" />
+    <Compile Include="EquipmentLog.cs" />
+    <Compile Include="EquipmentMaterial.cs" />
+    <Compile Include="EquipmentRepairRecord.cs" />
+    <Compile Include="ErrorDictionary.cs" />
+    <Compile Include="FuncModule.cs" />
+    <Compile Include="Jurisdiction.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PushRule.cs" />
+    <Compile Include="Role.cs" />
+    <Compile Include="SystemLog.cs" />
+    <Compile Include="SystemModule.cs" />
+    <Compile Include="SystemService.cs" />
+    <Compile Include="SystemSetting.cs" />
+    <Compile Include="UploadSetting.cs" />
+    <Compile Include="User.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZNC.Utility\ZNC.Utility.csproj">
+      <Project>{417775fd-f0d1-4989-b7cf-b34776a3c07c}</Project>
+      <Name>ZNC.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

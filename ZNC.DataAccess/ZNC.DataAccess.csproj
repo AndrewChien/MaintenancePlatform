@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F0BA9E4C-84ED-4676-B8F8-478A9DB3AA7C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZNC.DataAccess</RootNamespace>
+    <AssemblyName>ZNC.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\资料-项目\demos\QiubaiReader\YirenReaderConsole\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.105.2, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\System.Data.SQLite.DLL</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DA\Acquisition\AcquisitionBaseDataDAL.cs" />
+    <Compile Include="DA\Acquisition\AcquisitionSettingDAL.cs" />
+    <Compile Include="DA\CommonAccess.cs" />
+    <Compile Include="DA\Equipment\EquipmentAlarmRecordDAL.cs" />
+    <Compile Include="DA\Equipment\EquipmentCardDAL.cs" />
+    <Compile Include="DA\Equipment\EquipmentDAL.cs" />
+    <Compile Include="DA\Equipment\EquipmentHealthDAL.cs" />
+    <Compile Include="DA\Equipment\EquipmentLedgerDAL.cs" />
+    <Compile Include="DA\Equipment\EquipmentLogDAL.cs" />
+    <Compile Include="DA\Equipment\EquipmentMaterialDAL.cs" />
+    <Compile Include="DA\Equipment\EquipmentRepairRecordDAL.cs" />
+    <Compile Include="DA\Equipment\ErrorDictionaryDAL.cs" />
+    <Compile Include="DA\MysqlHelper.cs" />
+    <Compile Include="DA\SQLiteHelper.cs" />
+    <Compile Include="DA\Systems\AlarmHistoryDAL.cs" />
+    <Compile Include="DA\Systems\DictionaryDAL.cs" />
+    <Compile Include="DA\Systems\PushRuleDAL.cs" />
+    <Compile Include="DA\Systems\SystemLogDAL.cs" />
+    <Compile Include="DA\Systems\SystemModuleDAL.cs" />
+    <Compile Include="DA\Systems\SystemServiceDAL.cs" />
+    <Compile Include="DA\Systems\SystemSettingDAL.cs" />
+    <Compile Include="DA\Systems\UploadSettingDAL.cs" />
+    <Compile Include="DA\Users\DepartmentDAL.cs" />
+    <Compile Include="DA\Users\JurisdictionDAL.cs" />
+    <Compile Include="DA\Users\RoleDAL.cs" />
+    <Compile Include="DA\Users\UserDAL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DA\XmlOperating.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DLL\log4net.dll" />
+    <Content Include="DLL\Microsoft.Exchange.WebServices.dll" />
+    <Content Include="DLL\Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.dll" />
+    <Content Include="DLL\Microsoft.Practices.EnterpriseLibrary.Caching.Database.dll" />
+    <Content Include="DLL\Microsoft.Practices.EnterpriseLibrary.Caching.dll" />
+    <Content Include="DLL\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
+    <Content Include="DLL\Microsoft.Practices.EnterpriseLibrary.Configuration.Design.HostAdapter.dll" />
+    <Content Include="DLL\Microsoft.Practices.EnterpriseLibrary.Configuration.Design.HostAdapterV5.dll" />
+    <Content Include="DLL\Microsoft.Practices.EnterpriseLibrary.Configuration.DesignTime.dll" />
+    <Content Include="DLL\Microsoft.Practices.EnterpriseLibrary.Configuration.EnvironmentalOverrides.dll" />
+    <Content Include="DLL\Microsoft.Practices.EnterpriseLibrary.Data.dll" />
+    <Content Include="DLL\Microsoft.Practices.EnterpriseLibrary.Data.SqlCe.dll" />
+    <Content Include="DLL\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll" />
+    <Content Include="DLL\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll" />
+    <Content Include="DLL\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll" />
+    <Content Include="DLL\Microsoft.Practices.EnterpriseLibrary.Logging.Database.dll" />
+    <Content Include="DLL\Microsoft.Practices.EnterpriseLibrary.Logging.dll" />
+    <Content Include="DLL\Microsoft.Practices.EnterpriseLibrary.PolicyInjection.dll" />
+    <Content Include="DLL\Microsoft.Practices.EnterpriseLibrary.Security.AzMan.dll" />
+    <Content Include="DLL\Microsoft.Practices.EnterpriseLibrary.Security.Cache.CachingStore.dll" />
+    <Content Include="DLL\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.dll" />
+    <Content Include="DLL\Microsoft.Practices.EnterpriseLibrary.Security.dll" />
+    <Content Include="DLL\Microsoft.Practices.EnterpriseLibrary.Validation.dll" />
+    <Content Include="DLL\Microsoft.Practices.EnterpriseLibrary.Validation.Integration.AspNet.dll" />
+    <Content Include="DLL\Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WCF.dll" />
+    <Content Include="DLL\Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WinForms.dll" />
+    <Content Include="DLL\Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WPF.dll" />
+    <Content Include="DLL\Microsoft.Practices.ServiceLocation.dll" />
+    <Content Include="DLL\Microsoft.Practices.Unity.Configuration.dll" />
+    <Content Include="DLL\Microsoft.Practices.Unity.dll" />
+    <Content Include="DLL\Microsoft.Practices.Unity.Interception.Configuration.dll" />
+    <Content Include="DLL\Microsoft.Practices.Unity.Interception.dll" />
+    <Content Include="DLL\MySql.Data.dll" />
+    <Content Include="DLL\mysql.data.entity.dll" />
+    <Content Include="DLL\mysql.visualstudio.dll" />
+    <Content Include="DLL\mysql.web.dll" />
+    <Content Include="DLL\Newtonsoft.Json.dll" />
+    <Content Include="DLL\NPOI.dll" />
+    <Content Include="DLL\NPOI.OOXML.dll" />
+    <Content Include="DLL\NPOI.OpenXml4Net.dll" />
+    <Content Include="DLL\NPOI.OpenXmlFormats.dll" />
+    <Content Include="DLL\Oracle.DataAccess.dll" />
+    <Content Include="DLL\Oracle.ManagedDataAccess.dll" />
+    <Content Include="DLL\SQLite.Interop.dll" />
+    <Content Include="DLL\System.Data.SQLite.DLL" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ZNC.DataEntiry\ZNC.DataEntiry.csproj">
+      <Project>{26bc72d8-87b1-4f08-ab1f-24cb9f8dc720}</Project>
+      <Name>ZNC.DataEntiry</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZNC.Utility\ZNC.Utility.csproj">
+      <Project>{417775FD-F0D1-4989-B7CF-B34776A3C07C}</Project>
+      <Name>ZNC.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

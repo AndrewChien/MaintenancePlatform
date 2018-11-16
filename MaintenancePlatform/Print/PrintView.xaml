@@ -1,0 +1,79 @@
+﻿<FixedPage 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+	x:Name="Window" 
+	UseLayoutRounding="True"
+	Width="21cm" Height="29.7cm">
+    <Grid x:Name="LayoutRoot" DataContext="{Binding ParaCollectionDetail}" Width="21cm" Height="29.7cm" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="77*"/>
+            <!--<RowDefinition Height="65*"/>-->
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <!--<Image Grid.Column="1" Name="logo" HorizontalAlignment="Left"  VerticalAlignment="Bottom"  Source="file:///D:/yuhui/Desktop/资产定位/Location%20Manager%20WPF%202.0%20-%201127/Location%20Manager%20WPF/OLMS/image/EWELL_LOGO.png" />-->
+             <TextBlock Grid.Column="2" Name="tb" Grid.Row="0" VerticalAlignment="Bottom" Text="" FontSize="32"></TextBlock>
+        </Grid>
+        <!--<Grid Grid.Row="1"  >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+              
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="设备名称"  HorizontalAlignment="Right" VerticalAlignment="Bottom"></TextBlock>
+            <TextBlock Name="sbmc" Grid.Row="0" Grid.Column="2" Text="" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+            <Label Grid.Row="0" Grid.Column="3" Content="设备类型"></Label>
+            <TextBlock Name="lx" Grid.Row="0" Grid.Column="4" Text="" ></TextBlock>
+            <Label Grid.Row="0" Grid.Column="5" Content="RFID"></Label>
+            <TextBlock Name="rfid" Grid.Row="0" Grid.Column="6" Text=""></TextBlock>
+            <Label Grid.Row="1" Grid.Column="1" Content="单位名称"></Label>
+            <TextBlock Name="cjdw" Grid.Row="1" Grid.Column="2" Text=""></TextBlock>
+            <Label Grid.Row="1" Grid.Column="5" Content="联系方式"></Label>
+            <TextBlock Name="lxfs" Grid.Row="1" Grid.Column="6" Text=""></TextBlock>
+            <Label Grid.Row="2" Grid.Column="1" Content="领卡时间"></Label>
+            <TextBlock Name="lksj" Grid.Row="2" Grid.Column="1" Text=""/>
+            <TextBlock Grid.Row="2" Grid.Column="3" Text="退卡时间"></TextBlock>
+            <TextBlock Name="tksj" Grid.Row="2" Grid.Column="4" Text=""></TextBlock>
+            <TextBlock Grid.Row="2" Grid.Column="5"  Text="打印时间"></TextBlock>
+            <TextBlock Name="currentTime" Grid.Row="2" Grid.Column="6" Text="{Binding SysTime}"></TextBlock>
+        </Grid>-->
+        <Grid Grid.Row="1" HorizontalAlignment="Center">
+        <DataGrid   ItemsSource="{Binding ParaDetail}" Name="dg" IsSynchronizedWithCurrentItem="False">
+            <DataGrid.Columns>
+                   <DataGridTextColumn Binding="{Binding Path=JRQY}" Header="途径区域" FontSize="20" CanUserSort="True"/>
+                    <DataGridTextColumn Binding="{Binding Path=JRSJ}" Header="进入时间" FontSize="20" CanUserSort="True" />
+                    <DataGridTextColumn Binding="{Binding Path=TCSJ}" Header="退出时间" FontSize="20" CanUserSort="True" />
+                    <DataGridTextColumn Binding="{Binding Path=TLSJ}" Header="停留时间" FontSize="20" CanUserSort="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+        </Grid>
+        <Label Name="StrPageBar" Grid.Row="3"  Content="{Binding StrPageBar}" HorizontalAlignment="Center" HorizontalContentAlignment="Center"></Label>
+    </Grid>
+
+    
+</FixedPage>

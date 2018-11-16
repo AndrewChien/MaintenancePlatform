@@ -1,0 +1,74 @@
+﻿<base:WindowBase x:Class="MaintenancePlatform.Views.Systems.UploadSettingEditView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MaintenancePlatform.Views.Systems"
+      xmlns:viewModel="clr-namespace:MaintenancePlatform.ViewModels.Systems"
+        xmlns:base="clr-namespace:MaintenancePlatform.Base"
+        mc:Ignorable="d"
+      Height="300" Width="550" WindowStartupLocation="CenterScreen"
+      Title="上传设置编辑">
+
+    <Window.DataContext>
+        <viewModel:UploadSettingEditVM x:Name="UploadSettingEditVM"/>
+    </Window.DataContext>
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="Arial" />
+
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="FontSize" Value="10"></Setter>
+            <Setter Property="Height" Value="20"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Background="#23547a">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="582*" />
+            <ColumnDefinition Width="46*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid ShowGridLines="False"  Margin="20" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="99*" />
+                <ColumnDefinition Width="195*" />
+                <ColumnDefinition Width="92*" />
+                <ColumnDefinition Width="202*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="44*" />
+                <RowDefinition Height="44*" />
+                <RowDefinition Height="44*" />
+                <RowDefinition Height="44*" />
+                <RowDefinition Height="44*" />
+            </Grid.RowDefinitions>
+            <Label Content="ID:" Height="28" HorizontalAlignment="Right" Margin="0,10,0,0" Name="label1" VerticalAlignment="Top" FontFamily="Arial" Foreground="White" FontSize="14"/>
+            <Label Content="代码:" Height="28" HorizontalAlignment="Right"  Name="label2" VerticalAlignment="Top" FontFamily="Arial" Foreground="White" FontSize="14" Grid.Column="2" Margin="17,10,0,0" />
+            <Label Content="规则名称:" Height="28" HorizontalAlignment="Right" Margin="0,9.6,167,0" Name="label3" VerticalAlignment="Top" Grid.Row="1" FontFamily="Arial" Foreground="White" FontSize="14" Grid.ColumnSpan="2" />
+            <Label Content="传输类型:" Height="28" HorizontalAlignment="Right" Margin="0,13.2,167,0" Name="label7" VerticalAlignment="Top" Grid.Row="2" FontFamily="Arial" Foreground="White" FontSize="14" Grid.ColumnSpan="2"/>
+            <Label Content="可用状态:" Height="28" HorizontalAlignment="Right" Margin="0,13.2,0.2,0" Name="label8" VerticalAlignment="Top" Grid.Row="2" Grid.Column="2" FontFamily="STSong" Foreground="White" FontSize="14" />
+            <Label Content="备注:" Height="28" HorizontalAlignment="Right" Margin="20,12.6,0,0" Name="label4" VerticalAlignment="Top" Grid.Row="3" FontFamily="Arial" Foreground="White" FontSize="14" />
+            <Label Content="格式:" Height="28" HorizontalAlignment="Right" Margin="0,9.6,0.2,0" Name="label9" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1" FontFamily="Arial" Foreground="White" FontSize="14" />
+
+            <TextBox Height="22" HorizontalAlignment="Left" Margin="0,10,0,0" Name="txtCode" VerticalAlignment="Top" Width="122" TabIndex="10" Grid.Column="3" />
+            <TextBox Height="22" HorizontalAlignment="Left" Margin="2.2,14.6,0,9.8" Name="txtName" Width="120" TabIndex="30" Grid.Row="1" Grid.Column="1" />
+            <TextBox Height="22" HorizontalAlignment="Left" Margin="0.2,11.8,0,0" Name="txtRemark" VerticalAlignment="Top" Width="368" TabIndex="40" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" />
+            <TextBox FontSize="14" Foreground="red" HorizontalAlignment="Left" Margin="0.2,17,0,9.4" Name="txtID" VerticalAlignment="Center" Width="122" Grid.Column="1" />
+            <TextBox FontSize="14" Foreground="red" HorizontalAlignment="Left" Margin="1.8,16.6,0,9.8" Name="txtFormat" VerticalAlignment="Center" Width="120" Grid.Column="3" Grid.Row="1" />
+            <ComboBox Height="22" HorizontalAlignment="Left" Style="{StaticResource SimpleComboBox}" Margin="2,16,0,0" Name="cmbEnable" VerticalAlignment="Top" Width="120" Grid.Row="2" TabIndex="50" Grid.Column="3">
+            </ComboBox>
+            <Button Content="确 定" Command="{Binding BtnSave}"  Style="{StaticResource ButtonStyle_save}"  Grid.Column="1" Grid.Row="4" Height="23" HorizontalAlignment="Left" Margin="32.4,9.4,0,0" Name="button1" VerticalAlignment="Top" Width="75" TabIndex="60" />
+            <Button Command="{Binding BtnReturn}" Style="{StaticResource ButtonStyle_close}" Content="关 闭" Height="23" HorizontalAlignment="Left" Margin="9.4,10.4,0,0" Name="button2" VerticalAlignment="Top" Width="75" Grid.Column="2" Grid.Row="4" TabIndex="70" />
+            <TextBlock FontSize="14" Foreground="red" HorizontalAlignment="Right" Margin="0,17,26.8,9.4" Text="*" VerticalAlignment="Center" />
+            <TextBlock FontSize="14" Foreground="red" HorizontalAlignment="Right" Margin="0,16,41.2,10.4" Text="*" VerticalAlignment="Center" Grid.Column="2" />
+            <TextBlock FontSize="14" Foreground="red" HorizontalAlignment="Right" Margin="0,17.6,68.8,8.8" Text="*" VerticalAlignment="Center" Grid.Row="1" />
+            <TextBlock FontSize="14" Foreground="red" HorizontalAlignment="Right" Margin="0,17.6,40.2,8.8" Text="*" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
+            <TextBlock FontSize="14" Foreground="red" HorizontalAlignment="Right" Margin="0,18.2,69.8,8.2" Text="*" VerticalAlignment="Center" Grid.Row="2" />
+            <TextBlock FontSize="14" Foreground="red" HorizontalAlignment="Right" Margin="0,21.2,68.2,5.2" Text="*" VerticalAlignment="Center" Grid.Column="2" Grid.Row="2" />
+            <ComboBox Height="22" HorizontalAlignment="Left" Style="{StaticResource SimpleComboBox}" Margin="2.2,16.2,0,0" x:Name="cmbTransType" VerticalAlignment="Top" Width="120" Grid.Row="2" TabIndex="50" Grid.Column="1">\
+            </ComboBox>
+        </Grid>
+    </Grid>
+</base:WindowBase>

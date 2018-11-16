@@ -1,0 +1,7 @@
+﻿<ComboBox x:Class="ZNC.Component.Controls.AutoComplete"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    IsEditable="True" StaysOpenOnEdit="True" IsTextSearchEnabled="False"
+    LostFocus="ComboBox_LostFocus" SelectionChanged="ComboBox_SelectionChanged">
+
+</ComboBox>

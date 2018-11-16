@@ -1,0 +1,67 @@
+﻿<Page x:Class="MaintenancePlatform.Views.Systems.SystemSettingView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MaintenancePlatform.Views.Systems"
+      xmlns:viewModel="clr-namespace:MaintenancePlatform.ViewModels.Acquisition"
+      xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="800"
+      Title="SystemSettingView">
+
+    <Page.DataContext>
+        <viewModel:AcquisitionSettingVM  x:Name="AcquisitionSettingVM"/>
+    </Page.DataContext>
+    <Page.Resources>
+        <viewModel:ConvertToBuildingName x:Key="ctb"></viewModel:ConvertToBuildingName>
+        <viewModel:ConvertForGYLBAvailable x:Key="GYLBAvailable">
+        </viewModel:ConvertForGYLBAvailable>
+    </Page.Resources>
+    <DockPanel Grid.IsSharedSizeScope="True">
+        <Grid DockPanel.Dock="Top" Background="#23547a">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="66" />
+                <RowDefinition Height="234*" />
+            </Grid.RowDefinitions>
+            <Canvas Margin="0,-9,0,0">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/image/main-0002_04.png" />
+                </Canvas.Background>
+            </Canvas>
+            <StackPanel Orientation="Vertical" Margin="0,1,0,0" Grid.Row="1">
+                <telerik:RadGridView Name="DGSelect"  telerik:StyleManager.Theme="Transparent" AlternationCount="2" ItemsSource="{Binding AcquisitionSettingCollection}"  IsReadOnly="True" 
+                                    VerticalAlignment="Top"   Height="Auto" RowIndicatorVisibility="Collapsed" 
+                                    ShowGroupPanel="False" AutoGenerateColumns="False" IsFilteringAllowed="False" SelectionUnit="FullRow" CanUserSelect="True"                                                       
+                                    CanUserReorderColumns="False" CanUserSortColumns="True" CanUserResizeColumns="False" SelectionMode="Extended" AlternateRowBackground="#ccffff" 
+                                     ShowGroupFooters="True" BorderBrush="White" Background="White" Foreground="Black" BorderThickness="1" FontFamily="Arial" Grid.Row="1" Margin="0,1,0,0">
+                    <telerik:RadGridView.HeaderRowStyle>
+                        <Style TargetType="telerik:GridViewHeaderRow">
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontSize" Value="14" />
+                        </Style>
+                    </telerik:RadGridView.HeaderRowStyle>
+                    <telerik:RadGridView.Columns>
+                        <telerik:GridViewSelectColumn  />
+                        <telerik:GridViewDataColumn IsFilterable="True" Header="ID" HeaderTextAlignment="center"  MinWidth="50"  DataMemberBinding="{Binding Id}"/>
+                        <telerik:GridViewDataColumn IsFilterable="False"  HeaderTextAlignment="center" Header="代码 " MinWidth="100" DataMemberBinding="{Binding Code}"/>
+                        <telerik:GridViewDataColumn IsFilterable="False"  HeaderTextAlignment="center" Header="数采名称 " MinWidth="100" DataMemberBinding="{Binding AcquisitionName}"/>
+                        <telerik:GridViewDataColumn IsFilterable="False" HeaderTextAlignment="center" Header="数采种类" MinWidth="150" DataMemberBinding="{Binding AcquisitionTypeID}"/>
+                        <telerik:GridViewDataColumn IsFilterable="False" HeaderTextAlignment="center" Header="备注"  MinWidth="350" DataMemberBinding="{Binding Remark}"/>
+                    </telerik:RadGridView.Columns>
+                </telerik:RadGridView>
+                <telerik:RadDataPager FontSize="14" FontFamily="Arial" DisplayMode="All"   x:Name="searchDataPager" PageSize="16" Margin="0,0,0,0"  Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Top"  />
+            </StackPanel>
+            <Button Command="{Binding BtnInsert}" Content="添  加" Margin="0,35,0,6" Style="{StaticResource ButtonStyle_add}"   Width="80" Height="25"  HorizontalAlignment="right"/>
+            <Button Command="{Binding BtnSearch}" Content="查  询" Height="25"  Margin="0,36,258,5" Style="{StaticResource SearchButtonStyle}" Width="80" HorizontalAlignment="right"/>
+            <Button Command="{Binding BtnDelete}" Content="删  除" Height="25"  Margin="0,35,86,6" Style="{StaticResource ButtonStyle_delete}" Width="80" HorizontalAlignment="right"/>
+            <Button Command="{Binding BtnUpdate}" Content="修  改" Height="25"  Margin="0,35,172,6" Style="{StaticResource ModifyButtonStyle}" Width="80"  HorizontalAlignment="right"/>
+            <Label Content="您所在位置：数采设置管理" Foreground="White" Height="26" HorizontalAlignment="Left" Margin="26,6,0,0" Name="label4" VerticalAlignment="Top" Width="191" FontSize="12" FontFamily="Arial" />
+            <Image Height="23" HorizontalAlignment="Left" Margin="5,6,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="23" Source="/image/main-0002_13.png" />
+            <StackPanel Height="34" HorizontalAlignment="Left" Margin="26,34,0,0" Name="stackPanel2" VerticalAlignment="Top" Width="350" Orientation="Horizontal">
+                <Label Content="按名称：" Height="28" Name="label6" Width="76" Foreground="White" FontSize="12" FontFamily="Arial" />
+                <TextBox x:Name="txtFloor" Width="104" Height="22" />
+            </StackPanel>
+        </Grid>
+    </DockPanel>
+</Page>
